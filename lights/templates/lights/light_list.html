@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block title %}My Lights{% endblock %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}"/>
+{% endblock extrahead %}
+
+{% block content %}
+    <h3>Available Lights:</h3>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Light Name</th>
+            <th>Status</th>
+            <th>Created</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for light in object_list %}
+            <tr>
+                <td>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <a href="{{ light.slug }}">{{ light.name }}</a>
+                </td>
+                <td><b>{{ light.get_status_display }}</b></td>
+                <td>{{ light.created }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="3">
+                    No lights added yet.
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <footer class="footer">
+        <div class="container">
+            <p>
+                Crafted by <a href="https://github.com/codeadict">@codeadict</a> for a PyStPete Meetup.
+            </p>
+        </div>
+    </footer>
+{% endblock content %}

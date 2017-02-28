@@ -1,0 +1,35 @@
+{
+  "name": "Channels Lights Control",
+  "description": "Demo app with django channels for PyStPete meetup.",
+  "repository": "https://github.com/codeadict/ChannelsLightsControl",
+  "keywords": [
+    "django",
+    "channels",
+    "websockets",
+    "iot",
+    "lights"
+  ],
+  "scripts": {
+    "postdeploy": "python manage.py migrate"
+  },
+  "env": {
+    "SECRET_KEY": {
+      "description": "Django's SECRET_KEY setting",
+      "generator": "secret_key@2017blahhhblahhh"
+    }
+  },
+  "addons": [
+    "heroku-postgresql",
+    "heroku-redis"
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      " size": "Free"
+    },
+    "worker": {
+      "quantity": 1,
+      "size": "Free"
+    }
+  }
+}

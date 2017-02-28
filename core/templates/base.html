@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "css/base.css" %}"/>
+    {% block extrahead %}{% endblock extrahead %}
+</head>
+<body class="{% block bodyclass %}{% endblock bodyclass %}">
+{% block content %}{% endblock %}
+<script src="{% static "js/jquery-1.12.2.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/reconnecting-websocket.min.js" %}"></script>
+{% block extrafooter %}{% endblock extrafooter %}
+</body>
+</html>

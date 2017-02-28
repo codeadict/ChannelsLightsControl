@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ object.name }}{% endblock %}
+
+{% block bodyclass %}
+    {% if object.status > 0 %}
+        lightbulb--is-on
+    {% endif %}
+{% endblock bodyclass %}
+
+{% block content %}
+    <div class="lightbulb">
+        <div class="lightbulb__bulb">
+            <div class="lightbulb__bulb__1">
+                <div class="lightbulb__reflection"></div>
+            </div>
+            <div class="lightbulb__bulb__2"></div>
+            <div class="lightbulb__bulb__3"></div>
+            <div class="lightbulb__bulb__4"></div>
+            <div class="lightbulb__bulb__5"></div>
+        </div>
+        <div class="lightbulb__base">
+            <div class="lightbulb__base__1"></div>
+            <div class="lightbulb__base__2"></div>
+            <div class="lightbulb__base__3"></div>
+            <div class="lightbulb__base__4"></div>
+            <div class="lightbulb__base__screw-1"></div>
+            <div class="lightbulb__base__screw-2"></div>
+            <div class="lightbulb__base__screw-3"></div>
+        </div>
+        <h2 class="lightbulb__base__name">{{ object.name }}</h2>
+    </div>
+
+{% endblock content %}
+
+{% block extrafooter %}
+    <script>
+        $(function () {
+            var ws_scheme = window.location.protocol == 'https:' ? 'wss' : 'ws';
+            var ws_path = ws_scheme + '://' + window.location.host + '/lights/stream/';
+            var socket = new ReconnectingWebSocket(ws_path);
+            // Handle incoming messages
+            socket.onmessage = function (message) {
+                // Decode the JSON
+                var data = JSON.parse(message.data);
+                if (data.error) {
+                    alert(data.error);
+                    return;
+                }
+
+                if (data.light_id == {{ object.id }}) {
+                    if (data.status === 1) {
+                        $('body').removeClass('lightbulb--is-on').addClass('lightbulb--is-on');
+                    } else {
+                        $('body').removeClass('lightbulb--is-on');
+                    }
+                }
+            };
+        });
+    </script>
+{% endblock extrafooter %}
