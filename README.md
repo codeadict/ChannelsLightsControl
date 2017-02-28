@@ -8,3 +8,28 @@ This was created for Python St. Petersburg (https://www.meetup.com/Saint-Petersb
 ## Demo
 ![Demo](docs/DjangoChannelsMeetup.gif)
 
+## Requirements
+
+* Python 3.5+
+* PostgreSQL
+* Redis
+
+## Running locally
+
+
+```shell
+$ pip install -r requirements.txt
+$ ./manage.py runserver
+```
+
+Go to: http://localhost:8000
+
+Create a few lights on the Django Admin(http://localhost:8000/admin)
+and start controlling it.
+
+That's all!
+
+## License
+
+MIT
+
