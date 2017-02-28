@@ -5,3 +5,6 @@ using the WebSockets protocol.
 
 This was created for Python St. Petersburg (https://www.meetup.com/Saint-Petersburg-Python-Meetup/).
 
+## Demo
+![Demo](docs/DjangoChannelsMeetup.gif)
+
