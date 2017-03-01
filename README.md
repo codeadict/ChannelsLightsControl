@@ -17,6 +17,9 @@ This was created for Python St. Petersburg (https://www.meetup.com/Saint-Petersb
 * **Username:** admin
 * **Password:** th3n0rthr3m3mb3rs
 
+## Slides
+
+* https://slides.com/daironmedinacaro/deck/live
 
 ## Requirements
 
