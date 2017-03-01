@@ -1,12 +1,22 @@
 # Django Channels Light Control
 
+![Demo](docs/DjangoChannelsMeetup.gif)
+
 Demo app using django channels to control(turn on and off) some lights 
 using the WebSockets protocol.
 
 This was created for Python St. Petersburg (https://www.meetup.com/Saint-Petersburg-Python-Meetup/).
 
 ## Demo
-![Demo](docs/DjangoChannelsMeetup.gif)
+
+* **Main Interface:** https://django-channels-light.herokuapp.com
+* **Control Interface(Admin):** https://django-channels-light.herokuapp.com/admin
+
+**Credentials:**
+
+* **Username:** admin
+* **Password:** th3n0rthr3m3mb3rs
+
 
 ## Requirements
 
@@ -32,4 +42,3 @@ That's all!
 ## License
 
 MIT
-
